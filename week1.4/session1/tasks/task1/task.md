@@ -1,4 +1,3 @@
-'''
 # input() function
 
 # Look up documentation on the 'input()' function
@@ -9,5 +8,3 @@
 
 # Write a small program to test the function
 
-age = int(input("Enter your age:"))
-print(f"Oh, you are {age} years old.")
