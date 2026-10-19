@@ -9,18 +9,15 @@ def check_vote_eligibility(age):
     This follows from week2, task_1/activity_1 in session 1
     """
     # Use an if statement to check if the user is 18 or over
-    if age >= 18:
+    if (age >= 18):
         return True
+        print("You are eligible to vote.")
     else:
         return False
+        print("You are not eligible to vote yet.")
 
 
 age = int(input("Enter your age: "))
-eligible = check_vote_eligibility(age)
-
-if eligible:
-    print("You are eligible to vote.")
-else:
-    print("You are not eligible to vote yet.")
+check_vote_eligibility(age)
 
 # what is the return value from check_vote_eligibility?
