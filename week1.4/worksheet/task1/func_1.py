@@ -1,8 +1,14 @@
 
-def func_1(lst_value): 
-    ''' 
-    write your docstring to explain the function 
-    ''' 
+def calculate_mean(lst_value): 
+    """
+    Calculates the average (mean) of a list of numbers.
+
+    Args:
+        lst_value: A list of numbers.
+
+    Returns: 
+       the total sum of the values divided by the number of values in the list; known as the mean or average. 
+    """ 
 
     sum = 0 
     num_of_value = len(lst_value) 

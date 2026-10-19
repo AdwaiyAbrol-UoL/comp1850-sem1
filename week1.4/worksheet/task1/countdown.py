@@ -5,5 +5,10 @@ def countdown(number):
     and counts the number down to zero printing each value. 
     ''' 
 
-    print(number) 
+    print(number)
+    if number <=0:
+        return
     countdown(number-1)
+
+# testing the function
+countdown(11)
