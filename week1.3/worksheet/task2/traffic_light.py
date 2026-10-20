@@ -16,3 +16,20 @@ print(f"Time {systime:03} State {state}")
 # Simulate the traffic light system up to time=maxtime in 1-second steps
 
 # At the end of each step you should output the time and state using the statement on line 14
+
+remaining_time = states[state]
+
+while systime < maxtime:
+    remaining_time = remaining_time - 1
+    if remaining_time == 0:
+        if state == "red":
+            state = "red_amber"
+        elif state == "red_amber":
+            state = "green"
+        elif state == "green":
+            state = "amber"
+        elif state == "amber":
+            state = "red"
+        remaining_time = states[state]
+    systime = systime + 1
+    print(f"Time {systime:03} State {state}")
