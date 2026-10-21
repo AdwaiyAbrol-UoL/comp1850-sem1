@@ -11,12 +11,23 @@ def readPGM( filename ):
     with open(filename,"r") as f:    # read in the file
         data = f.readlines()
         
-    data = [line.strip().split() for line in data[1:]] # clean the space-separated data, skip the first line
+    # Split each line into separate pieces of text.
+    cleaned_data = []
+    for line in data[1:]:
+        cleaned_line = line.strip().split()
+        cleaned_data.append(cleaned_line)
           
-    width = int(data[0][0]) # store the data - compare to the text in the file
-    height = int(data[0][1])
-    max_gray = int(data[1][0])
-    pixels = [[int(data[2+i][j]) for j in range(width)] for i in range(height)] # nested list comprehension for pixel array
+    width = int(cleaned_data[0][0])
+    height = int(cleaned_data[0][1])
+    max_gray = int(cleaned_data[1][0])
+
+    pixels = []
+    for row_number in range(height):
+        pixel_row = []
+        for pixel_number in range(width):
+            pixel = int(cleaned_data[2 + row_number][pixel_number])
+            pixel_row.append(pixel)
+        pixels.append(pixel_row)
     
     return width,height,max_gray,pixels   # tuple of PGM data
     
@@ -28,23 +39,31 @@ def writePGM( filename, image ):
     '''
     width,height,max_gray,pixels = image  # unpack the tuple
 
-    # open a file for writing
-    # write the data in PGM format
-    # don't forget the PGM code "P2"
+    with open(filename, "w") as f:
+        f.write("P2\n")
+        f.write(f"{width} {height}\n")
+        f.write(f"{max_gray}\n")
 
-    return
+        for row in pixels:
+            for pixel in row:
+                f.write(str(pixel) + " ")
+            f.write("\n")
 
 def invertPGM( image ):
     '''
-    Invert an image, ie. pixel value = 255 - pixel value
+    Invert an image by subtracting each pixel from the maximum gray value.
     Input: image data
     Output: inverted image data
     '''
     width,height,max_gray,pixels = image  # unpack the tuple
 
-    # your code
-    # create a new pixel array of inverted data 
-    inverted = []  # you can use a similar nested comprehension to the readPGM() function
+    inverted = []
+    for row in pixels:
+        inverted_row = []
+        for pixel in row:
+            inverted_pixel = max_gray - pixel
+            inverted_row.append(inverted_pixel)
+        inverted.append(inverted_row)
     
     return width,height,max_gray,inverted
 

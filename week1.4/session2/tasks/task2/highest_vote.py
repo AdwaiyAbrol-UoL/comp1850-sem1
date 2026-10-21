@@ -17,9 +17,26 @@ def most_frequent_string(votes):
         - None, None: if votes is empty.
     """
 
-    # Your task is to complete the body of the function based on the details in the docstring.
-    # Hint 1: You can complete this task with for loops or comprehensions 
-    # Hint 2: Think about the properties of the various collection-types
+    if len(votes) == 0:
+        return None, None
+
+    # Store how many times each string appears.
+    counts = {}
+    for vote in votes:
+        if vote in counts:
+            counts[vote] = counts[vote] + 1
+        else:
+            counts[vote] = 1
+
+    # Find the string with the largest count.
+    most_frequent = None
+    highest_count = 0
+    for vote in counts:
+        if counts[vote] > highest_count:
+            most_frequent = vote
+            highest_count = counts[vote]
+
+    return most_frequent, highest_count
 
 
 fruit = ['date', 'apple', 'cherry', 'date', 'apple', 'apple', 'elderberry',

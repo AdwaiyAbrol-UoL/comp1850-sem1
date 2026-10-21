@@ -14,9 +14,8 @@
 # the output produced the the function is used.
 
 
-def circle_area(radius, pi_value):  # assign a default value to pi_value
-    # complete the code here
-
+def circle_area(radius, pi_value=3.14):
+    area = pi_value * radius * radius
     return area
 
 
@@ -27,4 +26,3 @@ print(circle_area(22.5))
 
 # For those knowing how to import a module, you could import the math module
 # and then use math.pi as the default value for pi_value.
-
