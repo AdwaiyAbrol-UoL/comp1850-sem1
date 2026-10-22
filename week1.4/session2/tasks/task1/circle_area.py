@@ -14,10 +14,9 @@
 # the output produced the the function is used.
 
 
-def circle_area(radius, pi_value=3.14):
-    area = pi_value * radius * radius
+def circle_area(radius, pi=3.14):
+    area = pi * radius * radius
     return area
-
 
 # Check if correct output is produced
 print(circle_area(2))
