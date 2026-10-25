@@ -1,17 +1,31 @@
 # Week 1.5, Session 1: Task 4
-
-"""
-Classes for working with two-dimensional geometry.
-"""
-
 import math
 
-# Copy Point class definition here
+class Point:
+    """
+    A point in 2D space.
+    """
 
-# Add a definition for a Circle class here, giving it
-#  - A constructor that creates fields to represent the centre & radius
-#    of a circle (assume centre is represented as a Point object)
-#  - A method area(), returning the area of the circle
-#  - A method perimeter(), returning the perimeter of the circle
+    def __init__(self, x_coordinate, y_coordinate):
+        self.x = x_coordinate
+        self.y = y_coordinate
 
-# Don't add any testing code to this file!
+    def distance(self):
+        return math.sqrt(self.x ** 2 + self.y ** 2)
+
+    def distance_to(self, other_point):
+        x_difference = other_point.x - self.x
+        y_difference = other_point.y - self.y
+        return math.sqrt(x_difference ** 2 + y_difference ** 2)
+
+class Circle:
+
+    def __init__(self, radius, centre=Point(0.0, 0.0)):
+        self.radius = radius
+        self.centre = centre
+
+    def area(self):
+        return round(math.pi * self.radius * 2, 2)
+
+    def perimeter(self):
+        return round(2 * math.pi * self.radius, 2)

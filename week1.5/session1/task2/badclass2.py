@@ -1,6 +1,8 @@
 # Another bad class implementation
 
 # What does the runtime error mean?
+## when you try to access the attributes 'x' and 'y' of the Point, it raises an AttributeError because they are not defined as instance variables.
+
 # How do we fix the code?
 
 class Point:
@@ -12,8 +14,8 @@ class Point:
         """
         Creates a Point, given x & y coordinates.
         """
-        x = x_coordinate
-        y = y_coordinate
+        self.x = x_coordinate
+        self.y = y_coordinate
 
 
 p = Point(1.5, 2.0)

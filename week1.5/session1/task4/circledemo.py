@@ -1,10 +1,13 @@
 # Week 1.5, Session 1: Task 4
 
-# Add one or more import statements here to give this program
-# access to the Point and Circle classes defined in geometry.py
+from geometry import Point, Circle
 
-# Write a program here that
-#  - Creates a Point object, to represent the centre of a circle
-#  - Creates a Circle object, using the Point object and a value for radius
-#  - Displays the area of the circle
-#  - Displays the perimeter of the circle
+x_coordinate = float(input("Enter the centre x coordinate: "))
+y_coordinate = float(input("Enter the centre y coordinate: "))
+radius = float(input("Enter the circle radius: "))
+
+centre = Point(x_coordinate, y_coordinate)
+circle = Circle(radius, centre)
+
+print("Area:", format(circle.area(), ".4f"))
+print("Perimeter:", format(circle.perimeter(),".4f"))
