@@ -20,12 +20,12 @@ max_gray = data[2].strip()
 print(f"Max Gray Value: {max_gray}")
 
 # For each pixel, check if the pixel value is between 0 and the maximum gray value inclusive
-pixel_values = [int(value) for value in data [3:3+int(width)*int(height)]]
-print(f"Pixel values : {pixel_values}")
+original_pixel_value = [int(value) for value in data [3:3+int(width)*int(height)]]
+print(f"Pixel values : {original_pixel_value}")
 
 # Check if the widths and heights are the same as specified
-width_check = len(pixel_values) == int(width) * int(height)
-height_check = len(pixel_values) == int(width) * int(height)
+width_check = len(original_pixel_value) == int(width) * int(height)
+height_check = len(original_pixel_value) == int(width) * int(height)
 print(f"Width check: {width_check}")
 print(f"Height check: {height_check}")
 
@@ -35,13 +35,13 @@ print(f"Height check: {height_check}")
 #  Print `Invalid height` if the heights are different
 #  Print `Invalid pixel values` if any pixel values is less than 0 and greater than the maximum gray value
 
-if width_check and height_check and all(0 <= value <= int(max_gray) for value in pixel_values):
+if width_check and height_check and all(0 <= value <= int(max_gray) for value in original_pixel_value):
     print("Valid image")
 elif not width_check:
     print("Invalid width")
 elif not height_check:
     print("Invalid height")
-elif not all(0 <= value <= int(max_gray) for value in pixel_values):
+elif not all(0 <= value <= int(max_gray) for value in original_pixel_value):
     print("Invalid pixel values")
 else:
     print("Invalid image")
