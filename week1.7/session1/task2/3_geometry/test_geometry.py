@@ -1,5 +1,6 @@
 # Week 1.7, Session 1: Task 2 - unit tests for the methods in Point and Circle
 
+import math
 from geometry import Point, Circle
 
 def test_point_constructor():
