@@ -15,7 +15,11 @@ def average_bar_chart(data):
     '''
     Complete this code to produce a bar chart of the total of each 'hours per day' column
     '''
-    pass
+    hour_columns = ["Study_Hours_Per_Day","Extracurricular_Hours_Per_Day","Sleep_Hours_Per_Day","Social_Hours_Per_Day","Physical_Activity_Hours_Per_Day"]
+    total_hours = data[hour_columns].sum()
+    total_hours.plot(kind="bar", title="Total hours by activity")
+    plt.ylabel("Total hours")
+    plt.show()
 
 def hours_histogram(data, column_name):
     '''
@@ -69,3 +73,5 @@ while True:
         case "4":
             stress_level = input("Enter stress level: ").title()
             total_hours_per_stress_level(data, stress_level)
+
+# TODO : Have to go over how to do histograms, pie charts and stacked bar charts in Matplotlib - see the documentation for examples of how to do this.

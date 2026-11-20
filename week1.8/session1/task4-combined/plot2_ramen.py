@@ -25,13 +25,21 @@ def show_bar_chart_stars_per_manufacturer(data):
     '''
     Create a bar chart showing the average rating per manufacturer
     '''
-    pass
+    manufacturer_ratings = data.groupby("Manufacturer")["Stars"].mean()
+    manufacturer_ratings.plot(kind="bar", title="Average Rating per Manufacturer")
+    plt.xlabel("Manufacturer")
+    plt.ylabel("Average Rating")
+    plt.show()
 
 def show_bar_chart_stars_per_country(data):
     '''
     Create a bar chart showing the average rating per country
     '''
-    pass
+    country_ratings = data.groupby("Country")["Stars"].mean()
+    country_ratings.plot(kind="bar", title="Average Rating per Country")
+    plt.xlabel("Country")
+    plt.ylabel("Average Rating")
+    plt.show()
 
 def find_best_per_country(data, country):
     '''
@@ -119,3 +127,5 @@ while True:
             random_ramen_review(ramen_data)
         case "Q":
             break
+
+# TODO: I have to go over how to do histograms, pie charts and figure out how to group data by country.
