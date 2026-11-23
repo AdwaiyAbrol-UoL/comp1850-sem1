@@ -8,7 +8,15 @@
 .tables
 
 -- To see the attributes belonging to each table
-.schema customers
+.schema reviews
 
 -- And to see a count of the total number of tuples
-SELECT COUNT(*) as Cardinality FROM customers; 
+SELECT COUNT(*) as Cardinality FROM reviews; 
+
+-- 'customers' has cardinality of 180 and degree of 7. 
+-- 'restaurants' has cardinality of 30 and degree of 5. 
+-- 'menu_items' has cardinality of 270 and degree of 5. 
+-- 'drivers' has cardinality of 18 and degree of 4. 
+-- 'orders' has cardinality of 1300 and degree of 7. 
+-- 'order_items' has cardinality of 2693 and degree of 3. 
+-- 'reviews' has cardinality of 412 and degree of 4. 
